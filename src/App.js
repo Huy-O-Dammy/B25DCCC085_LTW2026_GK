@@ -6,6 +6,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import TaskList from './pages/TaskList';
 import AddTask from './pages/AddTask';
+import TaskDetail from './pages/TaskDetail';
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -60,6 +61,7 @@ const App = () => {
           path=tasks/new
           element={<AddTask tasks={tasks} onAdd={addTask} />}
         />
+        <Route path=tasks/:id element={<TaskDetail tasks={tasks} />} />
       </Route>
     </Routes>
   );
