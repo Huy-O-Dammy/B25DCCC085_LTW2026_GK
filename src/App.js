@@ -5,6 +5,7 @@ import axios from 'axios';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import TaskList from './pages/TaskList';
+import AddTask from './pages/AddTask';
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -24,6 +25,10 @@ const App = () => {
         setLoading(false);
       });
   }, []);
+
+  const addTask = (newTask) => {
+    setTasks((prevTasks) => [...prevTasks, newTask]);
+  };
 
   const toggleTask = (id) => {
     setTasks((prevTasks) =>
@@ -50,6 +55,10 @@ const App = () => {
               onDelete={deleteTask}
             />
           }
+        />
+        <Route
+          path=tasks/new
+          element={<AddTask tasks={tasks} onAdd={addTask} />}
         />
       </Route>
     </Routes>
